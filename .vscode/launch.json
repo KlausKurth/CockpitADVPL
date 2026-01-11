@@ -72,7 +72,10 @@
 	"lastPrograms": [
 		{
 			"label": "U_Principal"
+		},
+		{
+			"label": "U_ChamaTeste"
 		}
 	],
-	"lastProgramExecuted": "U_Principal"
+	"lastProgramExecuted": "U_ChamaTeste"
 }

@@ -1,49 +1,23 @@
-#include "protheus.ch"
-
-/*
-===============================================================================
-ARQUIVO.....: Principal.prw
-OBJETIVO....: Define layout e injeta conteúdo
-===============================================================================
-*/
-
 User Function Principal()
 
-    Local oCockpit
-    Local oTelaA
-    Local oTelaB
-    Local oTelaC
+    LOCAL oCockpit
+    LOCAL oA, oB, oC
 
-    /*
-    --------------------------------------------------------------------------
-    Define layout AQUI (flexível)
-    --------------------------------------------------------------------------
-    */
     oCockpit := Cockpit():New( ;
-        "Cockpit de Estudos ADVPL", ;
-        10, ;                 // header %
-        {50,50}, ;            // linhas
-        { {85,15}, {100} }, ; // colunas por linha
-        { CLR_HBLUE, CLR_WHITE, CLR_GRAY } )
+        "Cockpit ADVPL Funcional", ;
+        10, ;
+        {50, 50}, ;
+        { {70, 30}, {100} } )
 
-    /*
-    --------------------------------------------------------------------------
-    Recupera áreas
-    --------------------------------------------------------------------------
-    */
-    oTelaA := oCockpit:GetWin(1,1)
-    oTelaB := oCockpit:GetWin(1,2)
-    oTelaC := oCockpit:GetWin(2,1)
+    oA := oCockpit:GetWin(1,1)
+    oB := oCockpit:GetWin(1,2)
+    oC := oCockpit:GetWin(2,1)
 
-    /*
-    --------------------------------------------------------------------------
-    Conteúdo
-    --------------------------------------------------------------------------
-    */
-    TelaParametros(oTelaA)
-    TelaBotoes(oTelaB, oTelaC)
-    TelaResultado(oTelaC)
+    TStatic():New(10, 10, "Tela A", oA)
+    TStatic():New(10, 10, "Tela B", oB)
+    TStatic():New(10, 10, "Tela C", oC)
+
 
     oCockpit:Activate()
 
-Return
+RETURN

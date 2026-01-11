@@ -1,31 +1,17 @@
 #include "protheus.ch"
 
-/*
-===============================================================================
-CLASSE....: Cockpit
-OBJETIVO..: Framework de layout OO (SEM @)
-            Layout percentual configurado externamente
-===============================================================================
-*/
-
 CLASS Cockpit
 
-    // Containers
     DATA oMain
     DATA oHeader
     DATA oBody
-    DATA aWins     // áreas criadas dinamicamente
+    DATA aWins
 
-    // Configuração
     DATA nHeaderPerc
     DATA aLinhas
     DATA aColunas
-    DATA aColors
-    DATA oFontHeader
-    DATA oFontBody
 
-    // Métodos
-    METHOD New(cTitulo, nHeaderPerc, aLinhas, aColunas, aColors)
+    METHOD New(cTitulo, nHeaderPerc, aLinhas, aColunas)
     METHOD BuildHeader(cTitulo)
     METHOD BuildBody()
     METHOD BuildWins()
@@ -35,99 +21,113 @@ CLASS Cockpit
 ENDCLASS
 
 /*----------------------------------------------------------------------------*/
-METHOD New(cTitulo, nHeaderPerc, aLinhas, aColunas, aColors) CLASS Cockpit
+METHOD New(cTitulo, nHeaderPerc, aLinhas, aColunas) CLASS Cockpit
 
     ::nHeaderPerc := nHeaderPerc
     ::aLinhas     := aLinhas
     ::aColunas    := aColunas
-    ::aColors     := aColors
     ::aWins       := {}
 
-    ::oFontHeader := TFont():New("Arial", 14, 700)
-    ::oFontBody   := TFont():New("Arial", 10, 400)
-
-    ::oMain := TDialog():New( ;
-        0, 0, 100, 100, ;
-        cTitulo, , , , , .T. )
+    ::oMain := TDialog():New(0, 0, 600, 1000, cTitulo)
 
     ::BuildHeader(cTitulo)
     ::BuildBody()
     ::BuildWins()
 
-Return Self
+RETURN Self
 
 /*----------------------------------------------------------------------------*/
 METHOD BuildHeader(cTitulo) CLASS Cockpit
 
-    ::oHeader := TPanel():New( ;
-        0, 0, ;
-        ::nHeaderPerc, 100, ;
-        ::oMain )
+    LOCAL nHeaderH := (::oMain:nClientHeight * ::nHeaderPerc) / 100
 
-    ::oHeader:SetColor(::aColors[2], ::aColors[1])
+    ::oHeader := TPanel():New( ;
+        0, ;                         // top
+        "", ;                        // <<< TÍTULO (OBRIGATÓRIO)
+        0, ;                         // left
+        nHeaderH, ;                  // bottom
+        ::oMain:nClientWidth, ;      // right
+        ::oMain, ;                   // parent
+        .T. )
 
     TStatic():New( ;
-        2, 2, ;
+        10, ;
+        10, ;
         cTitulo, ;
-        ::oHeader, ;
-        , ;
-        ::oFontHeader )
+        ::oHeader )
 
-Return
+RETURN
+
+
+
+
+
+
 
 /*----------------------------------------------------------------------------*/
 METHOD BuildBody() CLASS Cockpit
 
+    LOCAL nHeaderH := (::oMain:nClientHeight * ::nHeaderPerc) / 100
+
     ::oBody := TPanel():New( ;
-        ::nHeaderPerc, 0, ;
-        100, 100, ;
-        ::oMain )
+        nHeaderH, ;
+        "", ;                        // <<< TÍTULO
+        0, ;
+        ::oMain:nClientHeight, ;
+        ::oMain:nClientWidth, ;
+        ::oMain, ;
+        .T. )
 
-    ::oBody:SetColor(CLR_BLACK, ::aColors[3])
+RETURN
 
-Return
+
+
 
 /*----------------------------------------------------------------------------*/
 METHOD BuildWins() CLASS Cockpit
 
-    Local nTop := 0
-    Local nLeft
-    Local nH
-    Local nW
-    Local i, j
+    LOCAL i, j
+    LOCAL nTop := 0
+    LOCAL nLeft
+    LOCAL nH, nW
 
-    For i := 1 To Len(::aLinhas)
+    FOR i := 1 TO Len(::aLinhas)
 
-        nH := ::aLinhas[i]
-
+        nH := (::oBody:nClientHeight * ::aLinhas[i]) / 100
         nLeft := 0
-        ::aWins[i] := {}
 
-        For j := 1 To Len(::aColunas[i])
+        AAdd(::aWins, {})
 
-            nW := ::aColunas[i][j]
+        FOR j := 1 TO Len(::aColunas[i])
+
+            nW := (::oBody:nClientWidth * ::aColunas[i][j]) / 100
 
             AAdd(::aWins[i], ;
                 TPanel():New( ;
-                    ::nHeaderPerc + nTop, ;
+                    nTop, ;
+                    "", ;            // <<< TÍTULO
                     nLeft, ;
-                    ::nHeaderPerc + nTop + nH, ;
+                    nTop + nH, ;
                     nLeft + nW, ;
-                    ::oBody ))
+                    ::oBody, ;
+                    .T. ) )
 
             nLeft += nW
-        Next
+        NEXT
 
         nTop += nH
-    Next
+    NEXT
 
-Return
+RETURN
+
+
+
 
 /*----------------------------------------------------------------------------*/
 METHOD GetWin(nLinha, nCol) CLASS Cockpit
-Return ::aWins[nLinha][nCol]
+RETURN ::aWins[nLinha][nCol]
 
 /*----------------------------------------------------------------------------*/
 METHOD Activate() CLASS Cockpit
     ::oMain:Activate()
-Return
+RETURN
