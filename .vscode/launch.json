@@ -1,18 +1,78 @@
 {
-	"version": "0.2.0",
+	"version": "0.2.2",
+	"includes": [
+		"C:\\protheus2410\\includes"
+	],
+	"permissions": {
+		"authorizationtoken": ""
+	},
+	"connectedServer": {
+		"id": "p1gp9egqgwjmhcbnolu8jhb249vf9g",
+		"type": "totvs_server_protheus",
+		"name": "Protheus_estudos",
+		"port": 1235,
+		"address": "localhost",
+		"buildVersion": "7.00.240223P",
+		"secure": true,
+		"includes": [
+			"C:\\protheus2410\\includes"
+		],
+		"environments": [
+			"desenv"
+		],
+		"username": "klaus.kurth",
+		"environment": "desenv",
+		"token": "djM6cDFncDllZ3Fnd2ptaGNibm9sdThqaGIyNDl2ZjlnOjE6bG9jYWxob3N0OjEyMzU6MTo3LjAwLjI0MDIyM1A6Mw==:djE6ZGVzZW52OmtsYXVzLmt1cnRoOnd3SlhDNzA0bFNjWTdxdVIxRm1PUmJNajlzOFZ1UDhSekVxYlBPMUxJRGs9|djI6MTc2ODA4Mjk0NTowOjE6MQ==.i8uEDFZczN8a3EERRyP3Vibo/Od9OXeNYTytGMUU8uSeAGzy/BdAkdePaiHF4vwKLQ3tdTWJF/Rb3Yng/5LikAFXDtPfGxUMorFrxvBWMTAsUpgGOtcxHxHW403fjfpUVxL1dTXopz4zc+cU1NJzFBVdfXBRzIPtw8Lj5r8YGwf6qwZ+ZGcpxmezozj43/1H2hu4aXCyeZAh3wcWxwDFf8Wo60vZmteOpjUxZvtIhq35Y87KfN+XjFmenlJbQeeKnwiXYiTjI6mBQH53TwU9gReKPwzPN6Suj2/OsJhaSsc1IL2mIHbey7WLE1DnMQNTnBRp6QuyhWEur1vpQToGZA==",
+		"informations": {
+			"permissions": [],
+			"errorMessage": "",
+			"environmentDetectedType": "totvs_server_protheus",
+			"serverDetectedType": "totvs_server_protheus"
+		}
+	},
 	"configurations": [
 		{
-			"type": "totvs_language_debug",
+			"id": "p1gp9egqgwjmhcbnolu8jhb249vf9g",
+			"type": "totvs_language_web_debug",
 			"request": "launch",
-			"name": "TOTVS Language Debug",
+			"name": "Protheus_curso",
 			"program": "${command:AskForProgramName}",
-			"cwb": "${workspaceFolder}",
-			"smartclientBin": "../totvs/bin/smartclient/smartclient.exe",
-			"isMultiSession": true,
-			"enableTableSync": true,
-			"extendFeatures": {
-				"charDetails": false
+			"port": 1235,
+			"address": "localhost",
+			"smartclientUrl": "https://localhost:1235/webapp/",
+			"buildVersion": "7.00.240223P",
+			"secure": true,
+			"includes": [
+				"C:\\protheus2410\\includes"
+			],
+			"environments": [
+				"desenv"
+			],
+			"username": "klaus.kurth",
+			"environment": "desenv",
+			"token": "djM6cDFncDllZ3Fnd2ptaGNibm9sdThqaGIyNDl2ZjlnOjE6bG9jYWxob3N0OjEyMzU6MTo3LjAwLjI0MDIyM1A6Mw==:djE6ZGVzZW52OmtsYXVzLmt1cnRoOnd3SlhDNzA0bFNjWTdxdVIxRm1PUmJNajlzOFZ1UDhSekVxYlBPMUxJRGs9|djI6MTc2ODA4Mjk0NTowOjE6MQ==.i8uEDFZczN8a3EERRyP3Vibo/Od9OXeNYTytGMUU8uSeAGzy/BdAkdePaiHF4vwKLQ3tdTWJF/Rb3Yng/5LikAFXDtPfGxUMorFrxvBWMTAsUpgGOtcxHxHW403fjfpUVxL1dTXopz4zc+cU1NJzFBVdfXBRzIPtw8Lj5r8YGwf6qwZ+ZGcpxmezozj43/1H2hu4aXCyeZAh3wcWxwDFf8Wo60vZmteOpjUxZvtIhq35Y87KfN+XjFmenlJbQeeKnwiXYiTjI6mBQH53TwU9gReKPwzPN6Suj2/OsJhaSsc1IL2mIHbey7WLE1DnMQNTnBRp6QuyhWEur1vpQToGZA==",
+			"informations": {
+				"permissions": [],
+				"errorMessage": "",
+				"environmentDetectedType": "totvs_server_protheus",
+				"serverDetectedType": "totvs_server_protheus"
 			}
 		}
-	]
+	],
+	"savedTokens": [
+		[
+			"p1gp9egqgwjmhcbnolu8jhb249vf9g:desenv",
+			{
+				"id": "p1gp9egqgwjmhcbnolu8jhb249vf9g",
+				"token": "djM6cDFncDllZ3Fnd2ptaGNibm9sdThqaGIyNDl2ZjlnOjE6bG9jYWxob3N0OjEyMzU6MTo3LjAwLjI0MDIyM1A6Mw==:djE6ZGVzZW52OmtsYXVzLmt1cnRoOnd3SlhDNzA0bFNjWTdxdVIxRm1PUmJNajlzOFZ1UDhSekVxYlBPMUxJRGs9|djI6MTc2ODA4Mjk0NTowOjE6MQ==.i8uEDFZczN8a3EERRyP3Vibo/Od9OXeNYTytGMUU8uSeAGzy/BdAkdePaiHF4vwKLQ3tdTWJF/Rb3Yng/5LikAFXDtPfGxUMorFrxvBWMTAsUpgGOtcxHxHW403fjfpUVxL1dTXopz4zc+cU1NJzFBVdfXBRzIPtw8Lj5r8YGwf6qwZ+ZGcpxmezozj43/1H2hu4aXCyeZAh3wcWxwDFf8Wo60vZmteOpjUxZvtIhq35Y87KfN+XjFmenlJbQeeKnwiXYiTjI6mBQH53TwU9gReKPwzPN6Suj2/OsJhaSsc1IL2mIHbey7WLE1DnMQNTnBRp6QuyhWEur1vpQToGZA=="
+			}
+		]
+	],
+	"lastConnectedServer": "p1gp9egqgwjmhcbnolu8jhb249vf9g",
+	"lastPrograms": [
+		{
+			"label": "U_Principal"
+		}
+	],
+	"lastProgramExecuted": "U_Principal"
 }
